@@ -12,22 +12,56 @@ public sealed class TabContainerSheetlet<T> : Sheetlet<T> where T: PalettedStyle
 {
     public override StyleRule[] GetRules(T sheet, object config)
     {
-        ITabContainerConfig tabCfg = sheet;
+        var defaultStyle = new
+        {
+            Panel = sheet
+                .GetTextureOr(sheet.TabContainerPanelPath, NanotrasenStylesheet.TextureRoot)
+                .IntoPatch(StyleBox.Margin.All, 2),
+            TabActive = new StyleBoxFlat()
+            {
+                BackgroundColor = sheet.SecondaryPalette.Element,
+                ContentMarginRightOverride = 5,
+                ContentMarginLeftOverride = 5,
+            },
+            TabInactive = new StyleBoxFlat()
+            {
+                BackgroundColor = sheet.SecondaryPalette.Background,
+                ContentMarginRightOverride = 5,
+                ContentMarginLeftOverride = 5,
+            },
+        };
 
-        var tabContainerPanel = sheet.GetTextureOr(tabCfg.TabContainerPanelPath, NanotrasenStylesheet.TextureRoot)
-            .IntoPatch(StyleBox.Margin.All, 2);
-
-        var tabContainerBoxActive = new StyleBoxFlat(sheet.SecondaryPalette.Element);
-        tabContainerBoxActive.SetContentMarginOverride(StyleBox.Margin.Horizontal, 5);
-        var tabContainerBoxInactive = new StyleBoxFlat(sheet.SecondaryPalette.Background);
-        tabContainerBoxInactive.SetContentMarginOverride(StyleBox.Margin.Horizontal, 5);
+        var noBorderedSecondaryStyle = new
+        {
+            Panel = new StyleBoxFlat()
+            {
+                BackgroundColor = sheet.SecondaryPalette.BackgroundLight,
+            },
+            TabActive = new StyleBoxFlat()
+            {
+                BackgroundColor = sheet.SecondaryPalette.BackgroundLight,
+                ContentMarginRightOverride = 5,
+                ContentMarginLeftOverride = 5,
+            },
+            TabInactive = new StyleBoxFlat()
+            {
+                BackgroundColor = sheet.SecondaryPalette.Background,
+                ContentMarginRightOverride = 5,
+                ContentMarginLeftOverride = 5,
+            },
+        };
 
         return
         [
             E<TabContainer>()
-                .Prop(TabContainer.StylePropertyPanelStyleBox, tabContainerPanel)
-                .Prop(TabContainer.StylePropertyTabStyleBox, tabContainerBoxActive)
-                .Prop(TabContainer.StylePropertyTabStyleBoxInactive, tabContainerBoxInactive),
+                .Prop(TabContainer.StylePropertyPanelStyleBox, defaultStyle.Panel)
+                .Prop(TabContainer.StylePropertyTabStyleBox, defaultStyle.TabActive)
+                .Prop(TabContainer.StylePropertyTabStyleBoxInactive, defaultStyle.TabInactive),
+
+            E<TabContainer>().Class("TabNoBorderedSecondary")
+                .Prop(TabContainer.StylePropertyPanelStyleBox, defaultStyle.Panel)
+                .Prop(TabContainer.StylePropertyTabStyleBox, defaultStyle.TabActive)
+                .Prop(TabContainer.StylePropertyTabStyleBoxInactive, defaultStyle.TabInactive),
         ];
     }
 }

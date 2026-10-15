@@ -33,6 +33,9 @@ namespace Content.Client.Cargo.BUI
         public int BankBalance { get; private set; }
 
         [ViewVariables]
+        // TODO: It is legacy from old times, when cargo receive
+        // orders by cargo shuttle on special ftl mark on catwalks
+        // It need to remove, because it's dead code
         public int OrderCapacity { get; private set; }
 
         [ViewVariables]
@@ -135,11 +138,6 @@ namespace Content.Client.Cargo.BUI
                 return;
 
             _menu.ProductCatalogue = cState.Products;
-            _menu.ShuttleCapacityLabel.Text = Loc.GetString(
-                "cargo-console-menu-order-capacity-number",
-                ("count", OrderCount),
-                ("capacity", OrderCapacity)
-            );
 
             _menu?.UpdateStation(station);
             Populate(cState.Orders);

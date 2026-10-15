@@ -30,7 +30,7 @@
                     <OptionButton
                         Name="FilterOption"
                         MinWidth="100"
-                        StyleClasses="ButtonSquare"/>
+                        StyleClasses="OpenLeft"/>
                 </BoxContainer>
                 <BoxContainer Orientation="Vertical"
                     MinHeight="225"
@@ -90,9 +90,6 @@
                         VerticalExpand="True"
                         HorizontalExpand="True"
                         SizeFlagsStretchRatio="3">
-                        <PanelContainer.PanelOverride>
-                            <gfx:StyleBoxFlat BackgroundColor="#408040" />
-                        </PanelContainer.PanelOverride>
                         <Label
                             RectClipContent="False"
                             HorizontalAlignment="Left"
@@ -106,8 +103,7 @@
                             Name="NameLabel"
                             RectClipContent="True"
                             HorizontalAlignment="Left"
-                            Margin="130 0 0 0">
-                        </Label>
+                            Margin="130 0 0 0"/>
                         <Button
                             Name="DeleteFabricating"
                             Margin="0"

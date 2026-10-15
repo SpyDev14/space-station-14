@@ -1,7 +1,8 @@
 <DefaultWindow xmlns="https://spacestation14.io"
                xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
                Title="{Loc 'cargo-console-order-menu-title'}"
-               MinSize="460 261">
+               MinSize="460 261"
+               Resizable="False">
     <BoxContainer Orientation="Vertical">
         <GridContainer Columns="2">
             <Label Text="{Loc 'cargo-console-order-menu-product-label'}"

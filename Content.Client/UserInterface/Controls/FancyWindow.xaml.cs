@@ -1,4 +1,5 @@
 using System.Numerics;
+using System.Text;
 using Content.Client.Guidebook;
 using Content.Client.Guidebook.Components;
 using Content.Client.Stylesheets;

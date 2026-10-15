@@ -5,7 +5,7 @@ using static Content.Client.Stylesheets.StylesheetHelpers;
 
 namespace Content.Client.Construction.UI;
 [CommonSheetlet]
-public sealed class ConstructionMenuSheetlet : Sheetlet<PalettedStylesheet>
+public sealed class CraftingMenuSheetlet : Sheetlet<PalettedStylesheet>
 {
     public override StyleRule[] GetRules(PalettedStylesheet sheet, object config)
     {

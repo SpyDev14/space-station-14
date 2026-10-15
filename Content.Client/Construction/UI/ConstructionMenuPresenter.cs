@@ -35,7 +35,7 @@ namespace Content.Client.Construction.UI
         private readonly SpriteSystem _spriteSystem;
         private readonly ISawmill _sawmill;
 
-        private readonly IConstructionMenuView _constructionView;
+        private readonly ICraftingMenuView _constructionView;
         private readonly EntityWhitelistSystem _whitelistSystem;
 
         private ConstructionSystem? _constructionSystem;

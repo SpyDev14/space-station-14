@@ -7,14 +7,20 @@
 
     <!-- Main Container -->
     <BoxContainer Orientation="Vertical"
-        VerticalExpand="True">
+                  VerticalExpand="True">
 
-        <TabContainer Name="TabContainer" VerticalExpand="True">
-          <!-- Sub-Main Container -->
-          <BoxContainer Orientation="Horizontal"
-              VerticalExpand="True"
-              Margin="8 4 8 6">
+        <TabContainer Name="TabContainer"
+                      VerticalExpand="True"
+                      StyleClasses="TabNoBorderedSecondary">
+            <TabContainer.PanelStyleBoxOverride>
+                <gfx:StyleBoxFlat />
+            </TabContainer.PanelStyleBoxOverride>
 
+            <!-- Main tab -->
+            <SplitContainer Orientation="Horizontal"
+                VerticalExpand="True"
+                Margin="8 4 8 6"
+                TabContainer.TabTitle="{Loc 'cargo-console-menu-tab-title-orders'}">
               <!-- Left Part -->
               <BoxContainer Orientation="Vertical"
                   SeparationOverride="4"
@@ -23,13 +29,11 @@
 
                   <!-- Info -->
                   <BoxContainer Orientation="Vertical">
-                      <GridContainer Columns="3">
+                      <GridContainer Columns="2">
 
                           <!-- Account -->
                           <Label Text="{Loc 'cargo-console-menu-account-name-label'}"
                               StyleClasses="LabelKeyText" />
-
-                          <controls:Separator StyleClasses="LowDivider" Orientation="Vertical" Margin="0 -2"/>
 
                           <RichTextLabel Name="AccountNameLabel"
                               Text="{Loc 'cargo-console-menu-account-name-none-text'}"
@@ -39,22 +43,9 @@
                           <Label Text="{Loc 'cargo-console-menu-points-label'}"
                               StyleClasses="LabelKeyText"/>
 
-                          <controls:Separator StyleClasses="LowDivider" Orientation="Vertical" Margin="0 -2"/>
-
                           <RichTextLabel Name="PointsLabel"
                               Text="$0"
                               Margin="4 0" />
-
-                          <!-- Orders Count/Capacity -->
-                          <Label Text="{Loc 'cargo-console-menu-order-capacity-label'}"
-                              StyleClasses="LabelKeyText" />
-
-                          <controls:Separator StyleClasses="LowDivider" Orientation="Vertical" Margin="0 -2 0 -1"/>
-
-                          <Label Name="ShuttleCapacityLabel"
-                              Text="0/0"
-                              Access="Public"
-                              Margin="4 0"/>
                       </GridContainer>
 
                       <controls:Separator StyleClasses="LowDivider" Margin="0 4.5 -8 0"/>
@@ -89,87 +80,92 @@
                   </ScrollContainer>
               </BoxContainer>
 
-              <controls:Separator StyleClasses="LowDivider" Margin="0 -8" Orientation="Vertical" MinHeight="2"/>
-
+              <controls:Separator StyleClasses="LowDivider"
+                                  Margin="0"
+                                  Orientation="Vertical"
+                                  MinHeight="2"/>
               <!-- Right Part -->
-              <BoxContainer Orientation="Vertical"
-                  SizeFlagsStretchRatio="0.8"
-                  HorizontalExpand="True"
-                  Name="RightPart">
-
-                  <!-- Requests Part -->
-                  <BoxContainer Orientation="Vertical"
+            <BoxContainer Orientation="Vertical"
                       VerticalExpand="True"
-                      SizeFlagsStretchRatio="2">
+                      HorizontalExpand="True"
+                      Name="RightPart">
 
-                      <!-- Title -->
-                      <controls:StripeBack>
-                          <Label Text="{Loc 'cargo-console-menu-requests-label'}"
-                              HorizontalAlignment="Center"
-                              Margin="4"/>
-                      </controls:StripeBack>
+                      <!-- Requests Part -->
+                      <BoxContainer Orientation="Vertical"
+                          VerticalExpand="True"
+                          SizeFlagsStretchRatio="2">
 
-                      <PanelContainer VerticalExpand="True"
-                          Margin="0 -4 0 0">
+                          <!-- Title -->
+                          <controls:StripeBack>
+                              <Label Text="{Loc 'cargo-console-menu-requests-label'}"
+                                  HorizontalAlignment="Center"
+                                  Margin="4"/>
+                          </controls:StripeBack>
 
-                          <!-- Background -->
-                          <PanelContainer.PanelOverride>
-                              <gfx:StyleBoxFlat BackgroundColor="#040404" />
-                          </PanelContainer.PanelOverride>
+                          <PanelContainer VerticalExpand="True"
+                              Margin="0 -4 0 0">
 
-                          <BoxContainer Orientation="Vertical">
-                              <ScrollContainer VerticalExpand="True">
-                                  <BoxContainer Name="Requests"
-                                      Orientation="Vertical"
-                                      StyleClasses="transparentItemList"
-                                      VerticalExpand="True"
-                                      SeparationOverride="8"
-                                      Margin="8">
+                              <!-- Background -->
+                              <PanelContainer.PanelOverride>
+                                  <gfx:StyleBoxFlat BackgroundColor="#040404" />
+                              </PanelContainer.PanelOverride>
 
-                                      <!-- Requests are added here by code -->
-                                  </BoxContainer>
-                              </ScrollContainer>
-                          </BoxContainer>
-                      </PanelContainer>
+                              <BoxContainer Orientation="Vertical">
+                                  <ScrollContainer VerticalExpand="True">
+                                      <BoxContainer Name="Requests"
+                                          Orientation="Vertical"
+                                          StyleClasses="transparentItemList"
+                                          VerticalExpand="True"
+                                          SeparationOverride="8"
+                                          Margin="8">
+
+                                          <!-- Requests are added here by code -->
+                                      </BoxContainer>
+                                  </ScrollContainer>
+                              </BoxContainer>
+                          </PanelContainer>
+                      </BoxContainer>
+
+                      <!-- Orders Part -->
+                      <BoxContainer Orientation="Vertical"
+                          VerticalExpand="True">
+
+                          <!-- Title -->
+                          <controls:StripeBack>
+                              <Label Text="{Loc 'cargo-console-menu-orders-label'}"
+                                  HorizontalAlignment="Center"
+                                  Margin="4"/>
+                          </controls:StripeBack>
+
+                          <PanelContainer VerticalExpand="True"
+                              Margin="0 -4 0 0">
+
+                              <!-- Background -->
+                              <PanelContainer.PanelOverride>
+                                  <gfx:StyleBoxFlat BackgroundColor="#040404" />
+                              </PanelContainer.PanelOverride>
+
+                              <BoxContainer Orientation="Vertical"
+                                  Margin="6">
+                                  <ScrollContainer VerticalExpand="True">
+                                      <BoxContainer Orientation="Vertical"
+                                          StyleClasses="transparentItemList"
+                                          VerticalExpand="True"
+                                          SeparationOverride="6">
+
+                                          <!-- Orders are added here by code -->
+                                      </BoxContainer>
+                                  </ScrollContainer>
+                              </BoxContainer>
+                          </PanelContainer>
+                      </BoxContainer>
                   </BoxContainer>
+              </SplitContainer>
 
-                  <!-- Orders Part -->
-                  <BoxContainer Orientation="Vertical"
-                      VerticalExpand="True">
-
-                      <!-- Title -->
-                      <controls:StripeBack>
-                          <Label Text="{Loc 'cargo-console-menu-orders-label'}"
-                              HorizontalAlignment="Center"
-                              Margin="4"/>
-                      </controls:StripeBack>
-
-                      <PanelContainer VerticalExpand="True"
-                          Margin="0 -4 0 0">
-
-                          <!-- Background -->
-                          <PanelContainer.PanelOverride>
-                              <gfx:StyleBoxFlat BackgroundColor="#040404" />
-                          </PanelContainer.PanelOverride>
-
-                          <BoxContainer Orientation="Vertical"
-                              Margin="6">
-                              <ScrollContainer VerticalExpand="True">
-                                  <BoxContainer Orientation="Vertical"
-                                      StyleClasses="transparentItemList"
-                                      VerticalExpand="True"
-                                      SeparationOverride="6">
-
-                                      <!-- Orders are added here by code -->
-                                  </BoxContainer>
-                              </ScrollContainer>
-                          </BoxContainer>
-                      </PanelContainer>
-                  </BoxContainer>
-              </BoxContainer>
-          </BoxContainer>
-          <!-- Funds tab -->
-          <BoxContainer Orientation="Vertical" Margin="15">
+            <!-- Funds tab -->
+          <BoxContainer TabContainer.TabTitle="{Loc 'cargo-console-menu-tab-title-funds'}"
+                        Orientation="Vertical"
+                        Margin="15">
               <BoxContainer Orientation="Horizontal">
                   <RichTextLabel Name="TransferLimitLabel" Margin="0 0 15 0"/>
                   <RichTextLabel Name="UnlimitedNotifier" Text="{Loc 'cargo-console-menu-account-action-transfer-limit-unlimited-notifier'}"/>
@@ -195,33 +191,8 @@
         </TabContainer>
 
         <!-- Footer -->
-        <!-- TODO: Create customControls element -->
-        <BoxContainer Orientation="Vertical"
-            VerticalAlignment="Bottom">
-
-            <controls:Separator StyleClasses="LowDivider"/>
-
-            <BoxContainer Orientation="Horizontal"
-                Margin="12 0 6 2"
-                VerticalAlignment="Bottom">
-
-                <!-- Footer title -->
-                <Label Text="{Loc 'cargo-console-menu-flavor-left'}"
-                    StyleClasses="WindowFooterText" />
-
-                <!-- Version -->
-                <Label Text="{Loc 'cargo-console-menu-flavor-right'}"
-                    StyleClasses="WindowFooterText"
-                    HorizontalAlignment="Right"
-                    HorizontalExpand="True"
-                    Margin="0 0 4 0" />
-
-                <TextureRect StyleClasses="NTLogoDark"
-                    Stretch="KeepAspectCentered"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Right"
-                    SetSize="19 19"/>
-            </BoxContainer>
-        </BoxContainer>
+        <controls:FancyFooter
+            Text="{Loc 'cargo-console-menu-flavor-left'}"
+            VersionText="{Loc 'cargo-console-menu-flavor-right'}"/>
     </BoxContainer>
 </controls:FancyWindow>

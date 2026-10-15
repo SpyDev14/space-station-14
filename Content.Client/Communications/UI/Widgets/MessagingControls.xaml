@@ -7,7 +7,7 @@
             Text="{Loc 'comms-console-station-announcements-header'}" />
         <PanelContainer StyleClasses="BackgroundDark" Margin="10 6 6 6"
             HorizontalExpand="True" VerticalExpand="True">
-            <TextEdit Name="RadioMessageInput" MinHeight="100"
+            <TextEdit Name="RadioMessageInput" MinHeight="100" Margin="10"
                 HorizontalExpand="True" VerticalExpand="True" />
         </PanelContainer>
         <BoxContainer Orientation="Horizontal" HorizontalExpand="True">

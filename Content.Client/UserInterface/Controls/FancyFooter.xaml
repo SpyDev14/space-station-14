@@ -1,0 +1,30 @@
+<Control xmlns="https://spacestation14.io"
+         xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls">
+    <BoxContainer Orientation="Vertical"
+                  VerticalAlignment="Bottom">
+
+        <controls:Separator StyleClasses="LowDivider"/>
+
+        <BoxContainer Orientation="Horizontal"
+                      Margin="12 0 6 2"
+                      VerticalAlignment="Bottom">
+
+            <!-- Usually used for some text -->
+            <Label Name="FlavourLeftLabel"
+                   StyleClasses="WindowFooterText" />
+
+            <!-- Usually used for "version" -->
+            <Label Name="FlavourRightLabel"
+                   StyleClasses="WindowFooterText"
+                   HorizontalAlignment="Right"
+                   HorizontalExpand="True"
+                   Margin="0 0 4 0" />
+
+            <TextureRect StyleClasses="NTLogoDark"
+                         Stretch="KeepAspectCentered"
+                         VerticalAlignment="Center"
+                         HorizontalAlignment="Right"
+                         SetSize="19 19"/>
+        </BoxContainer>
+    </BoxContainer>
+</Control>

@@ -5,7 +5,7 @@
     MinSize="450 642" SetSize="450 642"
     Title="{Loc 'comms-console-menu-title'}">
     <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="12">
-        <PanelContainer StyleClasses="PanelDark" VerticalExpand="True">
+        <PanelContainer VerticalExpand="True">
             <widgets:MessagingControls Name="MessagingControls" VerticalExpand="True" />
         </PanelContainer>
 

@@ -12,6 +12,7 @@ namespace Content.Client.Cargo.UI
 
         public CargoOrderRow()
         {
+            HorizontalExpand = true;
             RobustXamlLoader.Load(this);
         }
 

@@ -24,8 +24,8 @@
                     HorizontalAlignment="Right"
                     Text="{Loc 'store-ui-refund-text'}" />
             </BoxContainer>
-            <LineEdit Name="SearchBar" Margin="4" PlaceHolder="{Loc 'window-search-bar-placeholder'}" HorizontalExpand="True"/>
-                <PanelContainer VerticalExpand="True">
+            <LineEdit Name="SearchBar" Margin="0 0 0 4" PlaceHolder="{Loc 'window-search-bar-placeholder'}" HorizontalExpand="True"/>
+            <PanelContainer VerticalExpand="True">
                 <PanelContainer.PanelOverride>
                     <gfx:StyleBoxFlat BackgroundColor="#000000FF" />
                 </PanelContainer.PanelOverride>

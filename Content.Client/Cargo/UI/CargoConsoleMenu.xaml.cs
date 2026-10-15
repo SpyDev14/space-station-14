@@ -70,9 +70,6 @@ namespace Content.Client.Cargo.UI
                     ("code", Loc.GetString(accountProto.Code)));
             }
 
-            TabContainer.SetTabTitle(0, Loc.GetString("cargo-console-menu-tab-title-orders"));
-            TabContainer.SetTabTitle(1, Loc.GetString("cargo-console-menu-tab-title-funds"));
-
             ActionOptions.OnItemSelected += idx =>
             {
                 ActionOptions.SelectId(idx.Id);

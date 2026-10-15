@@ -16,7 +16,7 @@ cargo-console-menu-order-capacity-label = Объём заказов:{ " " }
 cargo-console-menu-order-capacity-number = { $count }/{ $capacity }
 cargo-console-menu-call-shuttle-button = Активировать телепад
 cargo-console-menu-permissions-button = Доступы
-cargo-console-menu-categories-label = Категории:{ " " }
+cargo-console-menu-categories-label = Категория:{ " " }
 cargo-console-menu-search-bar-placeholder = Поиск
 cargo-console-menu-requests-label = Запросы
 cargo-console-menu-orders-label = Заказы
@@ -83,7 +83,7 @@ cargo-funding-alloc-console-label-lockbox-cut = Доля дохода отдел
 cargo-funding-alloc-console-label-help-non-adjustible = Отдел снабжения получает { $percent }% от всех доходов, кроме ящиков с замком. Остаток распределяется следующим образом:
 cargo-funding-alloc-console-label-help-adjustible = Остаток доходов от всего, кроме ящиков с замком, распределяется следующим образом:
 cargo-funding-alloc-console-button-save = Сохранить изменения
-cargo-funding-alloc-console-label-save-fail = [bold]Разделение выручки невалидно![/bold] [color=red]({ $pos ->
+cargo-funding-alloc-console-label-save-fail = [bold]Разделение выручки некорректно![/bold] [color=red]({ $pos ->
     [1] +
     *[-1] -
 }{ $val }%)[/color]
