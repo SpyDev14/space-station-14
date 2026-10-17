@@ -1,0 +1,17 @@
+<Control xmlns="https://spacestation14.io"
+         MinWidth="56"
+         MaxHeight="84"
+         SetWidth="64">
+    <Control Margin="10">
+        <ContainerButton Name="Btn"
+                         VerticalExpand="True"
+                         HorizontalExpand="True">
+            <EntityPrototypeView Name="Icon"
+                                 SetSize="48"
+                                 VerticalAlignment="Top" />
+            <RichTextLabel Name="Text"
+                           VerticalAlignment="Bottom"
+                           HorizontalExpand="True"/>
+        </ContainerButton>
+    </Control>
+</Control>

@@ -11,13 +11,13 @@ namespace Content.Client.UserInterface.Systems.Crafting;
 [UsedImplicitly]
 public sealed class CraftingUIController : UIController, IOnStateChanged<GameplayState>
 {
-    private ConstructionMenuPresenter? _presenter;
+    private LegacyConstructionMenuPresenter? _presenter;
     private MenuButton? CraftingButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.CraftingButton;
 
     public void OnStateEntered(GameplayState state)
     {
         DebugTools.Assert(_presenter == null);
-        _presenter = new ConstructionMenuPresenter();
+        _presenter = new LegacyConstructionMenuPresenter();
     }
 
     public void OnStateExited(GameplayState state)
@@ -29,7 +29,7 @@ public sealed class CraftingUIController : UIController, IOnStateChanged<Gamepla
         _presenter = null;
     }
 
-    internal void UnloadButton(ConstructionMenuPresenter? presenter = null)
+    internal void UnloadButton(LegacyConstructionMenuPresenter? presenter = null)
     {
         if (CraftingButton == null)
         {

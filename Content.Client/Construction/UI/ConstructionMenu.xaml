@@ -1,9 +1,38 @@
-<controls:FancyWindow xmlns="https://spacestation14.io"
-    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+<BaseWindow xmlns="https://spacestation14.io"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    xmlns:c="clr-namespace:Content.Client.UserInterface.Controls"
     SetSize="560 450"
-    MinSize="560 320"
-    Title="{Loc construction-menu-title}">
+    MinSize="560 320">
 
-
-    
-</controls:FancyWindow>
+    <HBox SeparationOverride="10">
+        <c:FancyWindow Name="RecipesCatalogWindow"
+                       Title="{Loc construction-menu-catalog-title}">
+            <VBox SeparationOverride="1">
+                <HBox SeparationOverride="1">
+                    <LineEdit Name="RecipeSearch"
+                              HorizontalExpand="True"
+                              VerticalExpand="True"/>
+                    <OptionButton Name="CategorySelect"/>
+                </HBox>
+                <GridContainer Name="RecipesContainer"
+                               HorizontalExpand="True"
+                               VerticalExpand="True">
+                    <!-- Recipes was added here by code -->
+                </GridContainer>
+            </VBox>
+        </c:FancyWindow>
+        <c:FancyWindow Name="RecipeInfoWindow"
+                       Visible="False">
+            <VBox SeparationOverride="8">
+                <RichTextLabel Name="RecipeDescriptionLabel"
+                               HorizontalExpand="True"/>
+                
+                <PanelContainer StyleClasses="AngleRect"
+                                ModulateSelfOverride="#00000018"
+                                MaxWidth="160">
+                    
+                </PanelContainer>
+            </VBox>
+        </c:FancyWindow>
+    </HBox>
+</BaseWindow>

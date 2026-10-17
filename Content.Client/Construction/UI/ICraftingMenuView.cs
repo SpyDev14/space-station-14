@@ -14,58 +14,8 @@ using Robust.Shared.Utility;
 
 namespace Content.Client.Construction.UI;
 
-/// <summary>
-/// This is the interface for a UI View of the construction window. The point of it is to abstract away the actual
-/// UI controls and just provide higher level operations on the entire window. This View is completely passive and
-/// just raises events to the outside world. This class is controlled by the <see cref="ConstructionMenuPresenter"/>.
-/// </summary>
+
 public interface ICraftingMenuView : IDisposable
 {
-    // It isn't optimal to expose UI controls like this, but the UI control design is
-    // questionable so it can't be helped.
-    string[] Categories { get; set; }
-    OptionButton OptionCategories { get; }
 
-    bool EraseButtonPressed { get; set; }
-    bool GridViewButtonPressed { get; set; }
-    bool BuildButtonPressed { get; set; }
-
-    ListContainer ListViewRecipes { get; }
-
-    ScrollContainer GridViewRecipesScrollContainer { get; }
-    GridContainer GridViewRecipes { get; }
-
-    ItemList RecipeStepList { get; }
-
-    event EventHandler<(string search, string catagory)> PopulateRecipes;
-    event EventHandler<ConstructionMenu.ConstructionMenuListData?> RecipeSelected;
-    event EventHandler RecipeFavorited;
-    event EventHandler<bool> BuildButtonToggled;
-    event EventHandler<bool> EraseButtonToggled;
-    event EventHandler ClearAllGhosts;
-    event EventHandler PreviousRecipeInHistoryButtonPressed;
-    event EventHandler NextRecipeInHistoryButtonPressed;
-
-    void ClearRecipeInfo();
-    void SetRecipeInfo(string name, string description, EntityPrototype? targetPrototype, bool isItem, bool isFavorite);
-    void ResetPlacement();
-    void TrySelectCategory(int categoryId);
-    void TrySelectListViewButton(ProtoId<ConstructionPrototype> constructionProtoId);
-    void TrySelectGridViewButton(ContainerButton button, ContainerButton? previousButton);
-    void TogglePreviousRecipeButton(bool enabled);
-    void ToggleNextRecipeButton(bool enabled);
-    void UpdateGridViewButtonStyle(BaseButton button, bool selected);
-
-    #region Window Control
-
-    event Action? OnClose;
-
-    bool IsOpen { get; }
-
-    void OpenCentered();
-    void MoveToFront();
-    bool IsAtFront();
-    void Close();
-
-    #endregion
 }

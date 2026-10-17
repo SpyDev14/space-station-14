@@ -21,7 +21,7 @@ namespace Content.Client.Construction.UI
     /// model. This is where the bulk of UI work is done, either calling functions in the model to change state, or collecting
     /// data out of the model to *present* to the screen though the UI framework.
     /// </summary>
-    internal sealed partial class ConstructionMenuPresenter : IDisposable
+    internal sealed partial class LegacyConstructionMenuPresenter : IDisposable
     {
         [Dependency] private EntityManager _entManager = default!;
         [Dependency] private IEntitySystemManager _systemManager = default!;
@@ -35,7 +35,7 @@ namespace Content.Client.Construction.UI
         private readonly SpriteSystem _spriteSystem;
         private readonly ISawmill _sawmill;
 
-        private readonly ICraftingMenuView _constructionView;
+        private readonly ILegacyConstructionMenuView _constructionView;
         private readonly EntityWhitelistSystem _whitelistSystem;
 
         private ConstructionSystem? _constructionSystem;
@@ -90,13 +90,13 @@ namespace Content.Client.Construction.UI
         }
 
         /// <summary>
-        /// Constructs a new instance of <see cref="ConstructionMenuPresenter" />.
+        /// Constructs a new instance of <see cref="LegacyConstructionMenuPresenter" />.
         /// </summary>
-        public ConstructionMenuPresenter()
+        public LegacyConstructionMenuPresenter()
         {
             // This is a lot easier than a factory
             IoCManager.InjectDependencies(this);
-            _constructionView = new ConstructionMenu();
+            _constructionView = new LegacyConstructionMenu();
             _whitelistSystem = _entManager.System<EntityWhitelistSystem>();
             _spriteSystem = _entManager.System<SpriteSystem>();
             _sawmill = _logManager.GetSawmill("construction.ui");
@@ -174,9 +174,9 @@ namespace Content.Client.Construction.UI
             }
         }
 
-        private List<ConstructionMenu.ConstructionMenuListData> GetAndSortRecipes((string, string) args)
+        private List<LegacyConstructionMenu.ConstructionMenuListData> GetAndSortRecipes((string, string) args)
         {
-            var recipes = new List<ConstructionMenu.ConstructionMenuListData>();
+            var recipes = new List<LegacyConstructionMenu.ConstructionMenuListData>();
 
             var (search, category) = args;
             var isEmptyCategory = string.IsNullOrEmpty(category) || category == ForAllCategoryName;
@@ -340,7 +340,7 @@ namespace Content.Client.Construction.UI
         #region View mode: Grid
 
         private void PopulateGridView(GridContainer recipesGrid,
-            IEnumerable<ConstructionMenu.ConstructionMenuListData> actualRecipes)
+            IEnumerable<LegacyConstructionMenu.ConstructionMenuListData> actualRecipes)
         {
             foreach (var recipe in actualRecipes)
             {

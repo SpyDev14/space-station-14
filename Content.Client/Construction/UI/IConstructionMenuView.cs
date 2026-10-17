@@ -61,7 +61,7 @@ public readonly record struct RecipeConstructionStep(
 /// <summary>
 /// This is the interface for a UI View of the construction window. The point of it is to abstract away the actual
 /// UI controls and just provide higher level operations on the entire window. This View is completely passive and
-/// just raises events to the outside world. This class is controlled by the <see cref="ConstructionMenuPresenter"/>.
+/// just raises events to the outside world. This class is controlled by the <see cref="LegacyConstructionMenuPresenter"/>.
 /// </summary>
 public interface IConstructionMenuView : IDisposable
 {

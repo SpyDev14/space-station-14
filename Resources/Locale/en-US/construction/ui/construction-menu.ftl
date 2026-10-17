@@ -1,5 +1,9 @@
 ## ConstructionMenu.xaml.cs
 
+construction-menu-catalog-title = Construction menu
+
+
+# Legacy
 construction-menu-title = Construction
 construction-menu-place-ghost = Place construction ghost
 construction-menu-clear-all = Clear All
