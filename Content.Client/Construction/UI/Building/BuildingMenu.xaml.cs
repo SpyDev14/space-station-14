@@ -11,6 +11,7 @@ using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Client.Stylesheets;
 
 namespace Content.Client.Construction.UI.Building;
 
@@ -21,6 +22,9 @@ public sealed partial class BuildingMenu : BaseWindow
     public BuildingMenu()
     {
         RobustXamlLoader.Load(this);
+        ApplyStyles();
+
+
         var protoMan = IoCManager.Resolve<IPrototypeManager>();
         var entSysMan = IoCManager.Resolve<IEntitySystemManager>();
         var constructSys = entSysMan.GetEntitySystem<ConstructionSystem>();
@@ -36,5 +40,20 @@ public sealed partial class BuildingMenu : BaseWindow
                 new BuildingRecipeItem()
             );
         }
+    }
+
+    private void ApplyStyles()
+    {
+        BaseButton[] bigButtons = [
+            ClearAllBtn,
+            SelectEraseToolBtn,
+            SelectPipetteToolBtn,
+
+            RotateCWBtn,
+            RotateСCWBtn,
+        ];
+
+        foreach (var btn in bigButtons)
+            btn.AddStyleClass(StyleClass.ButtonBig);
     }
 }

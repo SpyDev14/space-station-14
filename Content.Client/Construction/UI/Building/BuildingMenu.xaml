@@ -41,22 +41,19 @@
                         tools for this, and I don't want to add a global style with
                         a huge name.-->
 
-                        <Button Name="ClearAllBtn"
-                                StyleClassess="OpenRight" />
-                        <Button Name="SelectPipetteTool"
-                                StyleClassess="OpenBoth" />
-                        <Button Name="SelectEraseTool"
-                                StyleClassess="OpenLeft" />
+                        <Button Name="ClearAllBtn" />
+                        <Button Name="SelectPipetteToolBtn" />
+                        <Button Name="SelectEraseToolBtn" />
                     </HBox>
                 </PanelContainer>
 
                 <!--Rotate buttons-->
                 <PanelContainer StyleClasses="AngleRect">
                     <HBox Margin="10">
+                        <!--Similarly-->
                         <Button Name="RotateCWBtn"
                                 StyleClasses="OpenRight"/>
-                        <Button Name="RotateCWBtn"
-                                Text=""
+                        <Button Name="RotateСCWBtn"
                                 StyleClasses="OpenRight"/>
                     </HBox>
                 </PanelContainer>
