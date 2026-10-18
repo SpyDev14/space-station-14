@@ -12,14 +12,35 @@ public sealed class ConstructionGuideView : Control
 {
     public ConstructionGuide? CurrentGuide { get; private set; }
 
+    private BoxContainer _rootBox;
+
     public ConstructionGuideView()
     {
-        var rootBox = new VBox();
-        AddChild(rootBox);
+        AddChild(_rootBox = new VBox() { SeparationOverride = 4 });
     }
 
     public void SetGuide(ConstructionGuide guide)
     {
+        if (guide == CurrentGuide)
+            return;
+
         CurrentGuide = guide;
+        ClearSteps();
+
+        foreach (var entry in guide.Entries)
+        {
+
+        }
+    }
+
+
+    private void ClearSteps()
+    {
+        _rootBox.RemoveAllChildren();
+    }
+
+    private void AddStep(FormattedMessage description, string[] conditions)
+    {
+
     }
 }
