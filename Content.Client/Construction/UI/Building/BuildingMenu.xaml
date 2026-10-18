@@ -1,0 +1,84 @@
+<this:BuildingMenu xmlns="https://spacestation14.io"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    xmlns:c="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:this="clr-namespace:Content.Client.Construction.UI.Building"
+    xmlns:cc="clr-namespace:Content.Client.Construction.UI.Controls"
+    SetSize="560 450"
+    MinSize="560 320">
+
+    <!--c - Content.Client controls-->
+    <!--cc - construction controls-->
+    <!--this - only for ref to BuildingMenu-->
+    
+    <HBox SeparationOverride="10">
+        <c:FancyWindow Name="RecipesCatalogWindow"
+                       Title="{Loc construction-menu-catalog-title}">
+            <VBox SeparationOverride="1">
+                <HBox SeparationOverride="1">
+                    <LineEdit Name="RecipeSearch"
+                              MinWidth="64"
+                              HorizontalExpand="True" />
+                    <OptionButton Name="CategorySelect" />
+                </HBox>
+                <GridContainer Name="RecipesContainer"
+                               HorizontalExpand="True"
+                               VerticalExpand="True">
+                    <!--Recipes was added here by code-->
+                </GridContainer>
+            </VBox>
+        </c:FancyWindow>
+        <VBox>
+            <!--Control buttons panel-->
+            <HBox SeparationOverride="10">
+                <!--Tools & Actions-->
+                <PanelContainer StyleClasses="AngleRect">
+                    <HBox Margin="10">
+                        <!--ButtonBig style class was added by code-->
+                        <!--(style & XAML system too weak for make it good)-->
+                        <!--I mean in CSS, I would create a local style (only for the
+                        Button inside the `info-panel` inside the `BuildingMenu`) with
+                        the simple name `control-button`, but there are no convenient
+                        tools for this, and I don't want to add a global style with
+                        a huge name.-->
+
+                        <Button Name="ClearAllBtn"
+                                StyleClassess="OpenRight" />
+                        <Button Name="SelectPipetteTool"
+                                StyleClassess="OpenBoth" />
+                        <Button Name="SelectEraseTool"
+                                StyleClassess="OpenLeft" />
+                    </HBox>
+                </PanelContainer>
+
+                <!--Rotate buttons-->
+                <PanelContainer StyleClasses="AngleRect">
+                    <HBox Margin="10">
+                        <Button Name="RotateCWBtn"
+                                StyleClasses="OpenRight"/>
+                        <Button Name="RotateCWBtn"
+                                Text=""
+                                StyleClasses="OpenRight"/>
+                    </HBox>
+                </PanelContainer>
+            </HBox>
+
+            <!--Info panel-->
+            <c:FancyWindow Name="RecipeInfoWindow"
+                           Visible="False"
+                           MinWidth="160"
+                           VerticalExpand="True"
+                           HorizontalExpand="True">
+                <VBox SeparationOverride="8">
+                    <RichTextLabel Name="RecipeDescriptionLabel"
+                                   HorizontalExpand="True" />
+                    <PanelContainer StyleClasses="AngleRect"
+                                    ModulateSelfOverride="#00000018"
+                                    HorizontalExpand="True">
+                        <cc:ConstructionGuideView Name="GuideView"
+                                                  HorizontalExpand="True" />
+                    </PanelContainer>
+                </VBox>
+            </c:FancyWindow>
+        </VBox>
+    </HBox>
+</this:BuildingMenu>
