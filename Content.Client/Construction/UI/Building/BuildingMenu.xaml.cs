@@ -12,12 +12,13 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Content.Client.Stylesheets;
+using Content.Client.Construction.UI.DTO;
 
 namespace Content.Client.Construction.UI.Building;
 
 
 [GenerateTypedNameReferences]
-public sealed partial class BuildingMenu : BaseWindow
+public sealed partial class BuildingMenu : BaseWindow, IBuildingMenuView
 {
     public BuildingMenu()
     {
@@ -40,6 +41,53 @@ public sealed partial class BuildingMenu : BaseWindow
                 new BuildingRecipeItem()
             );
         }
+    }
+
+    public RecipeInfo? SelectedRecipe => throw new NotImplementedException();
+
+    public event Action<Category?>? CategorySelected;
+    public event Action? FavoritesIsSelected;
+    public event Action? HistoryIsSelected;
+    public event Action<string>? SearchTextUpdated;
+    public event Action<RecipeInfo>? RecipeSelected;
+    public event Action<RecipeInfo>? RecipeDeselected;
+    public event Action<RecipeInfo>? RecipeFavorited;
+    public event Action<RecipeInfo>? RecipeUnfavorited;
+    public event Action? SetPreviousRecipeRequested;
+    public event Action? SetNextRecipeRequested;
+    public event Action<Tool>? ToolSelected;
+    public event Action? ClearAllIsRequested;
+    public event Action? RotateClockwiseRequested;
+    public event Action? RotateCounterClockwiseRequested;
+
+    public void SelectRecipe(RecipeInfo recipe, Category categoryToOpen)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void SetCategories(IEnumerable<Category> categories)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void SetPreviousRecipeDisplay(RecipeInfo prevRecipe)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void SetRecipes(IEnumerable<RecipeInfo> recipes)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void ShowRecipeInfo(RecipeExtraInfo info)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void UpdateRecipeIsFavorite(RecipeInfo recipe, bool isFavorite)
+    {
+        throw new NotImplementedException();
     }
 
     private void ApplyStyles()

@@ -8,7 +8,7 @@ using Robust.Shared.Utility;
 using System.Collections.Immutable;
 
 
-namespace Content.Client.Construction.UI.StructureConstruction;
+namespace Content.Client.Construction.UI.Building;
 
 
 // TEMPOARY HERE //
@@ -109,12 +109,13 @@ public interface IBuildingMenuView : IDisposable
     event Action<Tool>? ToolSelected;
     event Action? ClearAllIsRequested;
     event Action? RotateClockwiseRequested;
-    event Action RotateCounterClockwiseRequested;
+    event Action? RotateCounterClockwiseRequested;
     #endregion
 
 
     #region Window controlling
-    event Action? OnClose;
+    //event Action? OnClose;
+    //event Action? OnOpen;
 
     void Close();
 

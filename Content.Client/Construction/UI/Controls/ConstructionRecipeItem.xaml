@@ -2,16 +2,14 @@
          MinWidth="56"
          MaxHeight="84"
          SetWidth="64">
-    <Control Margin="10">
-        <ContainerButton Name="Btn"
-                         VerticalExpand="True"
-                         HorizontalExpand="True">
-            <EntityPrototypeView Name="IconView"
-                                 SetSize="48 48"
-                                 VerticalAlignment="Top" />
-            <RichTextLabel Name="TextLabel"
-                           VerticalAlignment="Bottom"
-                           HorizontalExpand="True"/>
-        </ContainerButton>
-    </Control>
+    <ContainerButton Name="Btn"
+                     VerticalExpand="True"
+                     HorizontalExpand="True">
+        <EntityPrototypeView Name="IconView"
+                             SetSize="48 48"
+                             VerticalAlignment="Top" />
+        <RichTextLabel Name="TextLabel"
+                       VerticalAlignment="Bottom"
+                       HorizontalExpand="True"/>
+    </ContainerButton>
 </Control>
