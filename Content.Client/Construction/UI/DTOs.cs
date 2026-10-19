@@ -4,6 +4,10 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.Construction.UI.DTO;
 
+
+// All this stuff represent buldings & items
+
+
 /// <summary>
 /// Data about category what needs for show
 /// </summary>
